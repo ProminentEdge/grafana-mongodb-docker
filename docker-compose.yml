@@ -5,8 +5,17 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
+    network-mode: host
     volumes:
      - ./data:/var/lib/grafana
      - /var/lib/grafana/plugins
     ports:
      - 3000:3000
+    networks:
+     - piper_default
+    environment:
+      - GF_LOG_LEVEL=debug  # Set the log level to debug
+
+networks:
+  piper_default:
+    external: true
