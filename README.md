@@ -1,3 +1,16 @@
+# Retrieve latest SSL certificates
+```
+# copy from s3
+aws s3 cp s3://pe-piper/lego/certificates/auto.prominentedge.com.crt ./ssl/auto.prominentedge.com.fullchain.pem
+aws s3 cp s3://pe-piper/lego/certificates/auto.prominentedge.com.key ./ssl/auto.prominentedge.com.privkey.pem
+aws s3 cp s3://pe-piper/lego/certificates/autotest.prominentedge.com.crt ./ssl/autotest.prominentedge.com.fullchain.pem
+aws s3 cp s3://pe-piper/lego/certificates/autotest.prominentedge.com.key ./ssl/autotest.prominentedge.com.privkey.pem
+
+# name properly for grafana
+cp ./ssl/auto.prominentedge.com.fullchain.pem ./ssl/grafana.crt
+cp ./ssl/auto.prominentedge.com.privkey.pem ./ssl/grafana.key
+```
+
 # Grafana MongoDB datasource Docker container
 
 [![Docker Hub](https://img.shields.io/docker/v/ajeje93/grafana-mongodb?label=Docker%20Hub&sort=date)](https://hub.docker.com/r/ajeje93/grafana-mongodb)
